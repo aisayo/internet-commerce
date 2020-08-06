@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
 
 
   def show
-    render json: @category, only: [:name]
+    render json: @category, only: [:name], include: :items
   end
 
   def create
