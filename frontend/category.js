@@ -1,6 +1,16 @@
+const BASE_URL = 'http://127.0.0.1:3000/';
+
 class Category {
     constructor(name){
         this.name = name;
+    }
+
+    static fetchCategories(){
+        fetch(`${BASE_URL}/categories`)
+        .then(resp => resp.json())
+        .then(categories =>{
+            this.loadCategories(categories);
+        })
     }
 
     static loadCategories(categories){

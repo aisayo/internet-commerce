@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetchCategories();
+    Category.fetchCategories();
 })
 
-const BASE_URL = 'http://127.0.0.1:3000/';
+// const BASE_URL = 'http://127.0.0.1:3000/';
 
 
-const fetchCategories = () => {
-    fetch(`${BASE_URL}/categories`)
-    .then(resp => resp.json())
-    .then(categories =>{
-        Category.loadCategories(categories);
-    })
-}
+// const fetchCategories = () => {
+//     fetch(`${BASE_URL}/categories`)
+//     .then(resp => resp.json())
+//     .then(categories =>{
+//         Category.loadCategories(categories);
+//     })
+// }
 
