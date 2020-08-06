@@ -9,19 +9,7 @@ const fetchCategories = () => {
     fetch(`${BASE_URL}/categories`)
     .then(resp => resp.json())
     .then(categories =>{
-        loadCategories(categories);
+        Category.loadCategories(categories);
     })
 }
 
-const loadCategories = (categories) => {
-    for (const category of categories){
-        renderCategory(category);
-    }
-}
-
-const renderCategory = (category) => {
-    let navBar = document.getElementById('navbar')
-    let link = `<a href="#">${category.name}</a>`
-    navBar.innerHTML += link
-    
-}
