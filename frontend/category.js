@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:3000/';
+const BASE_URL = 'http://127.0.0.1:3000/categories';
 let navBar = document.getElementById('navbar')
 
 class Category {
@@ -8,7 +8,7 @@ class Category {
     }
 
     static fetchCategories(){
-        fetch(`${BASE_URL}/categories`)
+        fetch(`${BASE_URL}`)
         .then(resp => resp.json())
         .then(categories =>{
             this.loadCategories(categories);
@@ -29,18 +29,23 @@ class Category {
         
     }
 
-    
-
     static addEventHandler(){
-        
         navBar.addEventListener('click', Category.categoryEventHandler)
-    
     }
 
     static categoryEventHandler(){
         if (event.target.matches('a.category-link')){
-            console.log('clicked!')
+            Category.fetchCategoryItems();
         }
+    }
+
+    static fetchCategoryItems(){
+        let categoryId = event.target.dataset.id
+        fetch(`${BASE_URL}/${categoryId}`)
+        .then(resp => resp.json())
+        .then(items => {
+            console.log(items)
+        })
     }
 
 }
