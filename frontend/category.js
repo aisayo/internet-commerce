@@ -40,11 +40,11 @@ class Category {
     }
 
     static fetchCategoryItems(){
-        let categoryId = event.target.dataset.id
+        let categoryId = event.target.dataset.id;
         fetch(`${BASE_URL}/${categoryId}`)
         .then(resp => resp.json())
-        .then(items => {
-            console.log(items)
+        .then(category => {
+            Item.newItem(category.items);
         })
     }
 
